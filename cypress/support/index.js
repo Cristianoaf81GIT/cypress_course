@@ -20,4 +20,5 @@ import "./commands";
 // require('./commands')
 Cypress.Server.defaults({
   ignore: (xhr) => bool,
+  // whitelist: (xhr) => true,
 });

@@ -20,5 +20,7 @@ describe("Test Contact Us form via Automation Test Store", () => {
       "Do you provide additional discount on bulk orders?"
     );
     cy.get(".col-md-6 > .btn").click();
+    cy.get('.mb40 > :nth-child(3)').should('have.text','Your enquiry has been successfully sent to the store owner!'
+);
   });
 });

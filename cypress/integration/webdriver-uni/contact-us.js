@@ -21,9 +21,10 @@ describe("Test Contact Us form via WebdriverUni", () => {
     cy.get('[name="email"]').type("joao@email.com");
     cy.get("textarea.feedback-input").type("test only");
     cy.get('[type="submit"]').click();
+    cy.get('h1').should('have.text','Thank You for your Message!');
   });
 
-  it("Should not be able to submit a successful submission via contact us form as all fields are required", () => {
+it("Should not be able to submit a successful submission via contact us form as all fields are required", () => {
     cy.get('[name="first_name"]').type("João Alexandre");
     cy.get('[name="last_name"]').type("Gomes");
     cy.get('[type="submit"]').click();

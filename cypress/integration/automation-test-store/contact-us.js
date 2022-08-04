@@ -1,5 +1,9 @@
 /// <reference types="Cypress"/>
 
+/*
+ *docs {@link https://docs.cypress.io/guides/references/assertions#Chai-jQuery}
+ * */
+
 const urls = [
   "http://www.webdriveruniversity.com/",
   "http://www.webdriveruniversity.com/Contact-Us/contactus.html",
@@ -25,4 +29,13 @@ describe("Test Contact Us form via Automation Test Store", () => {
     cy.get('.mb40 > :nth-child(3)').should('have.text','Your enquiry has been successfully sent to the store owner!'
 );
   });
+
+  it("Should not be able to submit a successful submission via contact us form as all fields are required", () => {
+        // cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        cy.get('[name="first_name"]').type("Tom");
+        cy.get('[name="last_name"]').type("blogs");
+        cy.get('textarea.feedback-input').type("How can I learn Cypress?")
+        cy.get('[type="submit"]').click();
+    });
+
 });

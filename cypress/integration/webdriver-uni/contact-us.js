@@ -28,5 +28,6 @@ it("Should not be able to submit a successful submission via contact us form as 
     cy.get('[name="first_name"]').type("João Alexandre");
     cy.get('[name="last_name"]').type("Gomes");
     cy.get('[type="submit"]').click();
+    cy.get('body').contains('Error: all fields are required'); 
   });
 });

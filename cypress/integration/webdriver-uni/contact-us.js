@@ -17,6 +17,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
 
   it.only("Should be able to submit a successful submission via contact us form", () => {
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
+    cy.title().should('include', 'WebDriver | Contact Us');
     cy.get('[name="first_name"]').type("João Alexandre");
     cy.get('[name="last_name"]').type("Gomes");
     cy.get('[name="email"]').type("joao@email.com");

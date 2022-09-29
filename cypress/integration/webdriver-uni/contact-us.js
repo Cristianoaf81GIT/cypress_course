@@ -15,7 +15,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
     cy.visit(webdriveruniversity);
   });
 
-  it.only("Should be able to submit a successful submission via contact us form", () => {
+  it("Should be able to submit a successful submission via contact us form", () => {
     cy.url().should('include', 'contactus');
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
     cy.title().should('include', 'WebDriver | Contact Us');

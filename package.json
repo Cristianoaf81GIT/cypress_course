@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cypress Automation Framework",
   "main": "index.js",
-  "scripts": {  
+  "scripts": {
     "cypress:open": "cypress open",
     "start": "cypress open"
   },

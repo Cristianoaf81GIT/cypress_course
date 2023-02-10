@@ -16,7 +16,9 @@ describe("Test Contact Us form via Automation Test Store", () => {
   });
 
   it.only("Should be able to submit a successfull submission via contact us form", () => {
-    cy.get("a[href$='contact']").click();
+    cy.get("a[href$='contact']").click().then((linkText) => {
+      cy.log(`Clicked on link using text: ${linkText.text()}`);
+    });
     // cy.xpath("//a[contains(@href, 'contact')]").click();
     cy.get("#ContactUsFrm_first_name").type("Joe");
     cy.get("#ContactUsFrm_email").type("joe_blog@gmail.com");

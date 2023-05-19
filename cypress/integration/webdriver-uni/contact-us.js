@@ -10,12 +10,14 @@ const urls = [
 describe("Test Contact Us form via WebdriverUni", () => {
   let webdriveruniversity = "";
 
-  beforeEach(() => {
+  /*beforeEach(() => {
     webdriveruniversity = urls[1];
     cy.visit(webdriveruniversity);
-  });
+  });*/ 
 
   it("Should be able to submit a successful submission via contact us form", () => {
+    cy.visit(urls[0]);
+    cy.get('#contact-us').invoke('removeAttr', 'target').click({force: true});
     cy.url().should('include', 'contactus');
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
     cy.title().should('include', 'WebDriver | Contact Us');
@@ -28,8 +30,11 @@ describe("Test Contact Us form via WebdriverUni", () => {
   });
 
 it("Should not be able to submit a successful submission via contact us form as all fields are required", () => {
+    cy.visit(urls[0]);
+    cy.get('#contact-us').invoke('removeAttr', 'target').click({force: true});
     cy.get('[name="first_name"]').type("João Alexandre");
     cy.get('[name="last_name"]').type("Gomes");
+    // cy.get('#contact-us').click({force: true});
     cy.get('[type="submit"]').click();
     cy.get('body').contains('Error: all fields are required'); 
   });

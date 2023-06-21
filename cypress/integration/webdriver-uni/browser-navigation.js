@@ -20,7 +20,15 @@ describe("Validate webdriver uni homepage links", () => {
     // reload de page
     cy.reload();
     // cy.reload(true); // reload page without using cache
+    
+    cy.url().should('include', 'http://www.webdriveruniversity.com/');
+    
     cy.go('forward'); // return to homepage
     cy.url().should('include', 'contactus');
+
+    cy.go('back');
+    cy.get('#login-portal').invoke('removeAttr', 'target').click({force: true});
+    cy.url().should('include', 'Login-Portal');
+    cy.go('back');
   });
 });

@@ -30,5 +30,9 @@ describe("Validate webdriver uni homepage links", () => {
     cy.get('#login-portal').invoke('removeAttr', 'target').click({force: true});
     cy.url().should('include', 'Login-Portal');
     cy.go('back');
+
+    cy.get('#to-do-list').invoke('removeAttr', 'target').click({force: true});
+    cy.url().should('include', 'To-Do-List');
+    cy.go('back');
   });
 });

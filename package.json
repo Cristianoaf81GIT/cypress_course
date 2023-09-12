@@ -10,7 +10,6 @@
   "author": "Cristiano Alexandre",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.2.1",
-    "cypress-xpath": "^2.0.0"
+    "cypress": "^13.2.0"
   }
 }

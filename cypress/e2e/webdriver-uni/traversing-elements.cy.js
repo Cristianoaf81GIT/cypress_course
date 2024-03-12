@@ -4,16 +4,26 @@ describe("Traversing DOM elements in Cypress", () => {
     cy.visit("http://webdriveruniversity.com/");
     cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
   });
-  
-  it.only("children() to get the children of DOM elements", () => {
-    cy.get('.traversal-breadcrumb').children('.active').should('contain', 'Contact Us');
+
+  it("children() to get the children of DOM elements", () => {
+    cy.get(".traversal-breadcrumb")
+      .children(".active")
+      .should("contain", "Contact Us");
   });
 
-  it("closest() to validate the closest ancestor DOM element", () => {});
+  it("closest() to validate the closest ancestor DOM element", () => {
+    cy.get(".traversal-badge").closest("ul").should("have.class", "list-group");
+  });
 
-  it("eq() to retrieve a specific element based on index", () => {});
+  it("eq() to retrieve a specific element based on index", () => {
+    cy.get(".traversal-drinks-list > *").eq(2).should("contain", "Milk");
+  });
 
-  it("filter() to retrieve DOM elements that match a specific selector", () => {});
+  it.only("filter() to retrieve DOM elements that match a specific selector", () => {
+    cy.get(".btn-group-toggle > *")
+      .filter(".active")
+      .should("contain", "Button-1");
+  });
 
   it("find() to retrieve DOM elements of a given selector", () => {});
 

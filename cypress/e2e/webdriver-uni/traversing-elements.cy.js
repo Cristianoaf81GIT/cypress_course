@@ -25,15 +25,31 @@ describe("Traversing DOM elements in Cypress", () => {
       .should("contain", "Button-1");
   });
 
-  it.only("find() to retrieve DOM elements of a given selector", () => {
-    cy.get('.traversal-pagination').find('li').find('a').should('have.length',7);
+  it("find() to retrieve DOM elements of a given selector", () => {
+    cy.get(".traversal-pagination")
+      .find("li")
+      .find("a")
+      .should("have.length", 7);
   });
 
-  it("first() to retrieve the first DOM element within elements ", () => {});
+  it("first() to retrieve the first DOM element within elements ", () => {
+    cy.get(".traversal-table > tbody > tr > td")
+      .first()
+      .should("contain", "Andy");
+  });
 
-  it("last() to retrieve the last DOM element within elements", () => {});
+  it("last() to retrieve the last DOM element within elements", () => {
+    cy.get(".traversal-table > tbody > tr > td")
+      .last()
+      .should("contain", "Scott");
+  });
 
-  it("nextAll() to get all of the next sibling DOM elements within elements", () => {});
+  it.only("nextAll() to get all of the next sibling DOM elements within elements", () => {
+    cy.get(".traversal-drinks-list")
+      .contains("Tea")
+      .nextAll()
+      .should("have.length", "3");
+  });
 
   it("nextUntil() to get all of the next sibling DOM elements within elements until another element", () => {});
 

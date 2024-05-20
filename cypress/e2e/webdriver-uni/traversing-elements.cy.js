@@ -51,13 +51,21 @@ describe("Traversing DOM elements in Cypress", () => {
       .should("have.length", "3");
   });
 
-  it.only("nextUntil() to get all of the next sibling DOM elements within elements until another element", () => {
+  it("nextUntil() to get all of the next sibling DOM elements within elements until another element", () => {
     cy.get("#coffee").nextUntil("#milk");
   });
 
-  it("not() to remove DOM element(s) from the set of elements", () => {});
+  it("not() to remove DOM element(s) from the set of elements", () => {
+    cy.get(".traversal-button-states > button")
+      .not(".disabled")
+      .should("not.have.class", "disabled");
+  });
 
-  it("parent() To get parent DOM element of elements", () => {});
+  it.only("parent() To get parent DOM element of elements", () => {
+    cy.get(".traversal-mark")
+      .parent()
+      .should("contain", "Lorem ipsum dolor sit amet");
+  });
 
   it("parents() to get parents DOM element of elements", () => {});
 

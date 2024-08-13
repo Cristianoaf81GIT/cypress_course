@@ -85,6 +85,8 @@ describe("Traversing DOM elements in Cypress", () => {
   });
 
   it("siblings() To get all sibling DOM elements of elements", () => {
-    cy.get(".traversal-button-other-states .active").siblings().should("have.length", 3);
+    cy.get(".traversal-button-other-states .active")
+      .siblings()
+      .should("have.length", 3);
   });
 });

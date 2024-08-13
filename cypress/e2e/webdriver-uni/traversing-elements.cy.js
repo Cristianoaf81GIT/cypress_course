@@ -76,11 +76,15 @@ describe("Traversing DOM elements in Cypress", () => {
     cy.get("#sugar").prev().contains("Espresso");
   });
 
-  it.only("prevAll() to get all previous sibling DOM elements within elements", () => {
+  it("prevAll() to get all previous sibling DOM elements within elements", () => {
     cy.get(".sales").prevAll().should("have.length", 2);
   });
 
-  it("prevUntil() to get all previous sibling DOM elements within elements until other element", () => {});
+  it("prevUntil() to get all previous sibling DOM elements within elements until other element", () => {
+    cy.get("#veggie").prevUntil("#fruits").should("have.length", 5);
+  });
 
-  it("siblings() To get all sibling DOM elements of elements", () => {});
+  it("siblings() To get all sibling DOM elements of elements", () => {
+    cy.get(".traversal-button-other-states .active").siblings().should("have.length", 3);
+  });
 });

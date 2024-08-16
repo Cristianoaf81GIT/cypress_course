@@ -8,8 +8,19 @@ describe("Handling data via webdriveruni", () => {
   });
 
   it.only("Calculate and assert the total age of all users", () => {
-    cy.get("#thumbnail-1 td").each(($el,index,$list) => {
-
+    let userDetail = [];
+    let num = 0;
+    cy.get("#thumbnail-1 td").each(($el,index,_$list) => {
+      userDetail[index] = $el.text();
+    }).then(() => {
+      let i = 0;
+      for (i = 0; i < userDetail.length; i++) {
+        //cy.log(userDetail[i]);
+        if (Number(userDetail[i])) {
+          num += Number(userDetail[i]);
+        }
+      }
+      cy.log(`total of ages: ${num}`);
     });
   });
 });
